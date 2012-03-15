@@ -36,9 +36,13 @@ msm.save()
 print msm 
 # "<MyStagedModel object in status: Three>"
 
+```
 
+### It supports
+
+```python
 """
-    It supports iteration for Django
+    iteration for Django
         >>> for x in NUMBER_CHOICES:
         ...     print x
         (0, 'Zero')
@@ -57,5 +61,5 @@ print msm
         >>> NUMBER_CHOICES[2]
         'Two'
 """
-
 ```
+
