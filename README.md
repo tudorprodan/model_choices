@@ -1,21 +1,41 @@
+# Django ModelChoices helper
+
+Should be used like so:
+
 ```python
 
-# can be defined as a tuple
-NUMBER_CHOICES = ModelChoices(
-    (1, "One"),
-    (2, "Two"),
-    (3, "Three")
-)
+class MyStagedModel(models.Model):
 
-# as a dict
-NUMBER_CHOICES = ModelChoices({
-    1: "One",
-    2: "Two",
-    3: "Three"
-})
+    # Can be initialized with a tuple
+    NUMBER_CHOICES = ModelChoices(
+        (1, "One"),
+        (2, "Two"),
+        (3, "Three")
+    )
 
-# list
-NUMBER_CHOICES = ModelChoices("Zero", "One", "Two", "Three")
+    # with a dict
+    NUMBER_CHOICES = ModelChoices({
+        1: "One",
+        2: "Two",
+        3: "Three"
+    })
+
+    # with a list
+    NUMBER_CHOICES = ModelChoices("Zero", "One", "Two", "Three")
+
+    number_status = models.IntegerField(choices=NUMBER_CHOICES, default=NUMBER_CHOICES.Zero)
+
+    def __unicode__(self):
+        print "<MyStagedModel object in status: %s>" % NUMBER_CHOICES[self.number_status]
+
+
+msm = MyStagedModel.objects.get(pk=some_id)
+msm.number_status = MyStagedModel.NUMBER_CHOICES.Three
+msm.save()
+
+print msm 
+# "<MyStagedModel object in status: Three>"
+
 
 """
     It supports iteration for Django
