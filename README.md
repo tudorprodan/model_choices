@@ -26,7 +26,7 @@ class MyStagedModel(models.Model):
     number_status = models.IntegerField(choices=NUMBER_CHOICES, default=NUMBER_CHOICES.Zero)
 
     def __unicode__(self):
-        print "<MyStagedModel object in status: %s>" % NUMBER_CHOICES[self.number_status]
+        return "<MyStagedModel object in status: %s>" % NUMBER_CHOICES[self.number_status]
 
 
 msm = MyStagedModel.objects.get(pk=some_id)
