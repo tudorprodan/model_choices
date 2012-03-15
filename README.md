@@ -33,8 +33,9 @@ msm = MyStagedModel.objects.get(pk=some_id)
 msm.number_status = MyStagedModel.NUMBER_CHOICES.Three
 msm.save()
 
-print msm 
-# "<MyStagedModel object in status: Three>"
+print msm
+# would print:
+"<MyStagedModel object in status: Three>"
 
 ```
 
