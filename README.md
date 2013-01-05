@@ -1,9 +1,5 @@
 # Django ModelChoices helper
 
-[[_TOC_]]
-
-[[aaa.png|alt=dsada]]
-
 Should be used like so:
 
 ```python
