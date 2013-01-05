@@ -1,5 +1,7 @@
 # Django ModelChoices helper
 
+[[_TOC_]]
+
 Should be used like so:
 
 ```python
